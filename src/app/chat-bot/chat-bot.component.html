@@ -1,0 +1,27 @@
+<div id="header">
+  <span>
+    <img src="assets/send_button/nihilent-logo.gif"  class="header-logo">
+  </span>
+</div>
+<div id="container" class="contain-class">
+<ng-container *ngFor="let message of messages">
+  <div id="row-id" class="row">
+    <div id="msg" class="message" [ngClass]="message.author === 'bot' ? 'darker' : 'lighter'">
+      <span *ngIf="message.author === 'user'">
+          <img src="assets/send_button/chatgpt-user.jpg" class="width-icon">
+      </span>
+      <span *ngIf="message.author === 'bot'">
+        <img src="assets/send_button/chatgpt-icon.jpg" class="width-icon">
+      </span>
+      <p>{{ message.content }}</p>
+      </div>
+  </div>
+</ng-container>
+<div id="text-box" class="text-box">
+  <input [(ngModel)]="value" (keyup.enter)="retrieverepsonse()" type="text" class="select-input input-field" placeholder= "Please ask your question" id="usr"/>
+  <span>
+    <img src="assets/send_button/send.png" (click)="retrieverepsonse()" class="width-change">
+  </span>
+</div>
+
+</div>
